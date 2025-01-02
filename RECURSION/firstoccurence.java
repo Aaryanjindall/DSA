@@ -1,17 +1,17 @@
 public class firstoccurence {
-    public static int firstocc(int arr[],int key , int i){
+    public static void firstocc(int arr[],int key , int i){
         if(i == arr.length){
-            return -1;
+            return;
         }
         if(arr[i] == key){
-            return i;
+            System.out.println(i);
         }
         return firstocc(arr, key, i+1);
         
     }
     public static void main(String[] args) {
         int arr[] = {8,3,6,9,6,10,2,2,5};
-        System.out.println(firstocc(arr, 5, 0));
+        firstocc(arr, 5, 0);
 
     }
 }

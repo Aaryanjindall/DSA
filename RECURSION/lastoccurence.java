@@ -3,15 +3,15 @@ public class lastoccurence {
         if(i == arr.length){
             return -1;
         }
-        if(arr[i] == key){
+        int isfound = lastocc(arr,key,i+1);
+        if(isfound == -1 && arr[i] == key){
             return i;
         }
-        return lastocc(arr, key, i+1);
-        
+        return isfound;
     }
     public static void main(String[] args) {
         int arr[] = {8,3,6,9,5,10,2,5,3};
-        System.out.println(lastocc(arr, 5, 0));
+        System.out.println(lastocc(arr, 5, 9));
 
     }
 }
