@@ -23,7 +23,7 @@ public class multidimensionalarraylist {
             System.out.println();
 
         }
-        // System.out.println(mainList);
+        System.out.println(mainList);
 
 
 

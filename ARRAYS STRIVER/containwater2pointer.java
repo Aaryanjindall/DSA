@@ -11,14 +11,13 @@ public class containwater2pointer {
             maxwater = Math.max(maxwater,currwater);
 
             //update ptr
-            // if(height.get(l)<height.get(r)){
-            //     l++;
-            // }
-            // else{
-            //     r--;
-            // }
-            l++;
-            r--;
+            if(height.get(l)<height.get(r)){
+                l++;
+            }
+            else{
+                r--;
+            }
+            
         }
         return maxwater;
         
