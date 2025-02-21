@@ -93,6 +93,52 @@ public class linkedlist5 {
         return val;
     }
 
+    public int itrsearch(int key){
+        Node temp = head;
+        int i = 0;
+        while(temp!= null){
+            if(temp.data == key){
+                return i;
+            }
+            temp = temp.next;
+            i++;
+
+        }
+        return -1;
+
+    }
+    public int helper(Node head, int key){
+        if(head == null){
+            return -1;
+        }
+        if(head.data == key){
+            return 0;
+        }
+        int recans = helper(head.next, key);
+        if(recans == -1){
+            return -1;
+        }
+        return recans+1;
+    }
+
+    public int recsearch(int key){
+        return helper(head,key);
+        }
+    public void reverse(){
+        Node prev = null;
+        Node curr = head;
+        Node next = null;
+        while(curr != null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+    }   
+         
+    
+
     public static void main(String[] args) {
         linkedlist5 ll = new linkedlist5();
         ll.addfirstt(1);
@@ -100,8 +146,13 @@ public class linkedlist5 {
         ll.addfirstt(3);
         ll.addmid(1,4);
 
-        ll.removefirst();
-        ll.removeLast();
+        // ll.removefirst();
+        // ll.removeLast();
+
+        System.out.println(ll.itrsearch(4));
+        System.out.println(ll.itrsearch(5));
+        System.out.println(ll.recsearch(4));
+        System.out.println(ll.recsearch(5));
         
 
 
