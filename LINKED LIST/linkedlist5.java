@@ -124,10 +124,12 @@ public class linkedlist5 {
     public int recsearch(int key){
         return helper(head,key);
         }
+
+
     public void reverse(){
         Node prev = null;
-        Node curr = head;
-        Node next = null;
+        Node curr = tail = head;
+        Node next ;
         while(curr != null){
             next = curr.next;
             curr.next = prev;
@@ -136,6 +138,99 @@ public class linkedlist5 {
         }
         head = prev;
     }   
+
+
+    public void deletenode(int n){
+        int sz = 0;
+        Node temp = head;
+        while(temp!= null){
+            temp = temp.next;
+            sz++;
+
+        }
+        if(n== sz){
+            head = head.next;
+            return;
+        }
+        int i = 1;
+        int itofind = sz-n;
+        Node prev = head;
+        while(i < itofind){
+            prev = prev.next;
+            i++;
+
+
+        }
+        prev.next = prev.next.next;
+        return;
+
+    }
+
+//slow - fast technique
+    public Node findmid(){
+        Node slow = head;
+        Node fast = head;
+        
+        while(fast != null && fast.next != null){
+            slow = slow.next;//+1
+            fast = fast.next.next;//+2
+
+
+        }
+        return slow; // slow is my mid node
+
+    }
+
+    // public boolean checkpalen(){
+    //     if(head == null || head.next == null){
+    //         return true;
+    //     }
+
+    //     //step 1 find mid
+    //     Node mid = findmid(head);
+    //     //step 2 reverse the right half
+
+    //     Node prev = null;
+    //     Node curr = mid;
+    //     Node next;
+    //     while(curr != null){
+    //         next = curr.next;
+    //         curr.next = prev;
+    //         prev = curr;
+    //         curr = next;
+    //     }
+    //     //step 3 compare left and right
+
+    //     Node right = prev;
+    //     Node left = head;
+
+
+    //     while(right != null){
+    //         if(left.data != right.data){
+    //             return false;
+    //         }
+    //         left = left.next;
+    //         right = right.next;
+
+    //     }
+    //     return true;
+
+
+
+    // }
+
+
+    public void lastnode(){
+        Node curr = head;
+        while(curr.next.next != null){
+            curr = curr.next;
+
+        }
+        curr.next = null;
+
+    }
+
+    
          
     
 
@@ -144,15 +239,25 @@ public class linkedlist5 {
         ll.addfirstt(1);
         ll.addfirstt(2);
         ll.addfirstt(3);
-        ll.addmid(1,4);
+        ll.addfirstt(4);
+        ll.addfirstt(5);
+        ll.addfirstt(6);
+
+
+        // ll.addmid(1,4);
 
         // ll.removefirst();
         // ll.removeLast();
+        ll.lastnode();
 
-        System.out.println(ll.itrsearch(4));
-        System.out.println(ll.itrsearch(5));
-        System.out.println(ll.recsearch(4));
-        System.out.println(ll.recsearch(5));
+        // System.out.println(ll.itrsearch(4));
+        // System.out.println(ll.itrsearch(5));
+        // System.out.println(ll.recsearch(4));
+        // System.out.println(ll.recsearch(5));
+        // ll.reverse();
+        // System.out.println(ll.checkpalen());
+        
+
         
 
 
@@ -167,6 +272,7 @@ public class linkedlist5 {
         }
         System.out.println();
         System.out.println(size);
+        System.out.println(ll.findmid());
         
         
 

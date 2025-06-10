@@ -30,3 +30,4 @@ public class charactershashing {
         sc.close();
     }
 }
+  
