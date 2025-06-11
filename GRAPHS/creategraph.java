@@ -15,6 +15,7 @@ public class creategraph{
 
     }
     public static void main(String args[]){
+
     /*       
         (5)
     0 -----------1 
@@ -31,6 +32,7 @@ public class creategraph{
            |
            4
     */
+    
         int V = 5;
         ArrayList<Edge>[] graph = new ArrayList[V]; //null 
 
