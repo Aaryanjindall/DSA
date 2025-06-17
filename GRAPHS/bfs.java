@@ -63,6 +63,33 @@ public class bfs {
             }
         }
     }
+    public static void topsort(ArrayList<Edge>[] graph, int v, boolean[] vis) {
+        Stack<Integer> st = new Stack<>();
+        for (int i = 0; i < v; i++) {
+            if (!vis[i]) {
+                topsortutil(graph, i, vis, st);
+            }
+        }
+
+        // Print after all vertices processed
+        while (!st.isEmpty()) {
+            System.out.print(st.pop() + " ");
+        }
+    }
+
+    public static void topsortutil(ArrayList<Edge>[] graph, int curr, boolean[] vis, Stack<Integer> st) {
+        vis[curr] = true;
+
+        for (int j = 0; j < graph[curr].size(); j++) {
+            Edge e = graph[curr].get(j);
+            if (!vis[e.dest]) {
+                topsortutil(graph, e.dest, vis, st);
+            }
+        }
+
+        st.push(curr);
+    }
+}
 
     public static void main(String[] args) {
         int V = 7; // number of vertices
@@ -73,5 +100,6 @@ public class bfs {
         boolean[] visited = new boolean[V];
         System.out.print("BFS Traversal: ");
         bfsTraversal(graph, 0, visited); // Start from vertex 0
+        topsort(graph,V,visited);
     }
 }
